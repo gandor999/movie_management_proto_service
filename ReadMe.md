@@ -18,8 +18,8 @@ To do to up skill on springboot:
 - [ ] simple tests for the cruds
 - [ ] database
 - [ ] impl repository
-- [ ] impl controller
-- [ ] impl service
+- [x] impl controller
+- [x] impl service
 
 For the current movie management project these are the dependencies that were added:
 <img src="https://github.com/gandor999/movie_management_proto_service/raw/master/image.png">
