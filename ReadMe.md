@@ -8,6 +8,10 @@ To do to up skill on springboot:
 - [x] lay out the api documentation first, what to expect from the api, no auth yet, just simple crud
 - [x] design the model for this service
 - [x] make interfaces for controller and service
+- [ ] implement read
+- [ ] implement update
+- [ ] impement delete
+- [ ] implement create
 - [ ] implement simple crud
 - [ ] security
 - [ ] exception handling
