@@ -4,34 +4,42 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import movie_management_proto_service.movie_management_proto_service.constants.Constants;
+import movie_management_proto_service.movie_management_proto_service.models.MovieModel;
+import movie_management_proto_service.movie_management_proto_service.services.MovieManagementService;
 
 @RestController
-public class MainController implements IController {
+public class MainController implements IMovieManagementController {
+    @Autowired
+    MovieManagementService movieManagementService;
 
+    @GetMapping("/movie")
     @Override
-    public void create() {
+    public MovieModel read(@RequestParam(value = "movie_id") long id, @RequestParam(value = "movie_name", required = false) String name) throws Exception {
+        return movieManagementService.getItem(id, name);
+    }
+
+    @PostMapping("/movie")
+    @Override
+    public MovieModel create(String movieName) throws Exception {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'create'");
     }
 
     @Override
-    public void read() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'read'");
-    }
-
-    @Override
-    public void update() {
+    public MovieModel update() throws Exception {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'update'");
     }
 
     @Override
-    public void delete() {
+    public MovieModel delete() throws Exception {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
@@ -49,4 +57,5 @@ public class MainController implements IController {
 
         return "<pre> " + landingPage + " </pre>";
     }
+
 }
